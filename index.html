@@ -6,10 +6,20 @@
   <meta name="description" content="AirMill Studio — modern desktop utilities for photographers and file workflows." />
   <title>AirMill Studio</title>
 
+  <!-- Favicons (upload these files to the repo root next to index.html) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+  <!-- Optional: iOS home screen icon -->
+  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+
   <!-- Open Graph (nice previews when you share the link) -->
   <meta property="og:title" content="AirMill Studio" />
   <meta property="og:description" content="Modern desktop utilities for photographers and file workflows." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://airmill.github.io/" />
 
   <style>
     :root{
@@ -416,15 +426,9 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="#apps">
-            Browse apps
-          </a>
-          <a class="btn" href="https://github.com/AirMill?tab=repositories" target="_blank" rel="noopener">
-            View repositories
-          </a>
-          <a class="btn" href="mailto:YOUR_EMAIL_HERE">
-            Contact
-          </a>
+          <a class="btn primary" href="#apps">Browse apps</a>
+          <a class="btn" href="https://github.com/AirMill?tab=repositories" target="_blank" rel="noopener">View repositories</a>
+          <a class="btn" href="mailto:air.mobi@mail.ru">Contact</a>
         </div>
 
         <div class="meta-row" aria-label="Highlights">
@@ -477,7 +481,7 @@
               Files Renaming
               <span class="badge purple">Desktop</span>
             </h3>
-            <span class="badge">vLatest</span>
+            <span class="badge">Latest</span>
           </div>
 
           <div class="product-body">
@@ -490,17 +494,12 @@
           </div>
 
           <div class="product-shot">
-            <!-- Replace this with an <img> tag when you have a screenshot -->
             Screenshot placeholder (assets/renamer.png)
           </div>
 
           <div class="product-actions">
-            <a class="btn primary" href="https://github.com/AirMill/Files_renaming/releases/latest" target="_blank" rel="noopener">
-              Download (Latest)
-            </a>
-            <a class="btn" href="https://github.com/AirMill/Files_renaming" target="_blank" rel="noopener">
-              View project
-            </a>
+            <a id="renamerRelease" class="btn primary" href="#" target="_blank" rel="noopener">Download (Latest)</a>
+            <a id="renamerRepo" class="btn" href="#" target="_blank" rel="noopener">View project</a>
           </div>
         </article>
 
@@ -511,7 +510,7 @@
               RAW → JPG
               <span class="badge cyan">Photography</span>
             </h3>
-            <span class="badge">vLatest</span>
+            <span class="badge">Latest</span>
           </div>
 
           <div class="product-body">
@@ -528,12 +527,8 @@
           </div>
 
           <div class="product-actions">
-            <a class="btn primary" href="https://github.com/AirMill/Raw_to_Jpg/releases/latest" target="_blank" rel="noopener">
-              Download (Latest)
-            </a>
-            <a class="btn" href="https://github.com/AirMill/Raw_to_Jpg" target="_blank" rel="noopener">
-              View project
-            </a>
+            <a id="rawRelease" class="btn primary" href="#" target="_blank" rel="noopener">Download (Latest)</a>
+            <a id="rawRepo" class="btn" href="#" target="_blank" rel="noopener">View project</a>
           </div>
         </article>
 
@@ -561,13 +556,8 @@
           </div>
 
           <div class="product-actions">
-            <!-- If you create Releases later, change this link to /releases/latest -->
-            <a class="btn primary" href="https://github.com/AirMill/Virtual_Enigma" target="_blank" rel="noopener">
-              View project
-            </a>
-            <a class="btn" href="https://github.com/AirMill/Virtual_Enigma/releases" target="_blank" rel="noopener">
-              Releases (if available)
-            </a>
+            <a id="enigmaRepo" class="btn primary" href="#" target="_blank" rel="noopener">View project</a>
+            <a id="enigmaReleases" class="btn" href="#" target="_blank" rel="noopener">Releases</a>
           </div>
         </article>
 
@@ -598,9 +588,7 @@
             <a class="btn primary" href="https://github.com/AirMill?tab=repositories" target="_blank" rel="noopener">
               Explore repos
             </a>
-            <a class="btn" href="#faq">
-              FAQ
-            </a>
+            <a class="btn" href="#faq">FAQ</a>
           </div>
         </article>
       </div>
@@ -675,17 +663,55 @@
         <div>
           <div style="font-weight:650; color: rgba(255,255,255,0.86);">AirMill Studio</div>
           <div style="margin-top:6px;">Built by AirMill • Warsaw / EU time • Offline-first utilities</div>
-          <div class="fine">Edit this text to match your preference.</div>
+          <div class="fine">Contact: <a class="underline" href="mailto:air.mobi@mail.ru">air.mobi@mail.ru</a></div>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn" href="https://github.com/AirMill" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn primary" href="mailto:YOUR_EMAIL_HERE">Contact</a>
+          <a class="btn primary" href="mailto:air.mobi@mail.ru">Contact</a>
         </div>
       </div>
     </footer>
   </main>
 
   <script>
+    // ✅ Edit repo names here ONCE after you rename repositories:
+    // Examples:
+    // const RENAMER_REPO = "photo-renamer";
+    // const RAW_REPO     = "raw-to-jpeg";
+    // const ENIGMA_REPO  = "virtual-enigma";
+    const GH_USER = "AirMill";
+
+    const RENAMER_REPO = "Files_renaming";
+    const RAW_REPO     = "Raw_to_Jpg";
+    const ENIGMA_REPO  = "Virtual_Enigma";
+
+    function ghRepoUrl(repo) {
+      return `https://github.com/${GH_USER}/${repo}`;
+    }
+    function ghReleaseLatestUrl(repo) {
+      return `https://github.com/${GH_USER}/${repo}/releases/latest`;
+    }
+    function ghReleasesUrl(repo) {
+      return `https://github.com/${GH_USER}/${repo}/releases`;
+    }
+
+    // Wire buttons
+    const renamerRelease = document.getElementById("renamerRelease");
+    const renamerRepo    = document.getElementById("renamerRepo");
+    const rawRelease     = document.getElementById("rawRelease");
+    const rawRepo        = document.getElementById("rawRepo");
+    const enigmaRepo     = document.getElementById("enigmaRepo");
+    const enigmaReleases = document.getElementById("enigmaReleases");
+
+    if (renamerRelease) renamerRelease.href = ghReleaseLatestUrl(RENAMER_REPO);
+    if (renamerRepo)    renamerRepo.href    = ghRepoUrl(RENAMER_REPO);
+
+    if (rawRelease) rawRelease.href = ghReleaseLatestUrl(RAW_REPO);
+    if (rawRepo)    rawRepo.href    = ghRepoUrl(RAW_REPO);
+
+    if (enigmaRepo)     enigmaRepo.href     = ghRepoUrl(ENIGMA_REPO);
+    if (enigmaReleases) enigmaReleases.href = ghReleasesUrl(ENIGMA_REPO);
+
     // Tiny polish: smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener("click", (e) => {
