@@ -3,255 +3,243 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="AirMill Studio — modern desktop utilities for photographers and file workflows." />
   <title>AirMill Studio</title>
+  <meta name="description" content="AirMill Studio — warm, simple desktop utilities for photographers and file workflows." />
 
-  <!-- Favicons (upload these files to the repo root next to index.html) -->
+  <!-- Favicons (upload these files to repo root next to index.html) -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
-  <!-- Optional: iOS home screen icon -->
-  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
 
-  <!-- Open Graph (nice previews when you share the link) -->
+  <!-- Social preview -->
   <meta property="og:title" content="AirMill Studio" />
-  <meta property="og:description" content="Modern desktop utilities for photographers and file workflows." />
+  <meta property="og:description" content="Desktop utilities for photographers and file workflows." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://airmill.github.io/" />
 
   <style>
     :root{
-      --bg: #0b0c10;
-      --panel: rgba(255,255,255,0.06);
-      --panel2: rgba(255,255,255,0.09);
-      --stroke: rgba(255,255,255,0.12);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
-      --muted2: rgba(255,255,255,0.55);
-      --shadow: 0 20px 60px rgba(0,0,0,0.45);
-      --shadow2: 0 10px 30px rgba(0,0,0,0.35);
-      --radius: 22px;
-      --radius2: 16px;
-      --max: 1120px;
-      --blur: blur(14px);
+      /* Southern France palette */
+      --parchment: #F4E8D5;
+      --parchment-2: #EFE1C8;
+      --ink: #2C2520;          /* warm dark brown */
+      --muted: rgba(44,37,32,.68);
 
-      /* Accent */
-      --a1: #7c3aed; /* purple */
-      --a2: #22c55e; /* green */
-      --a3: #06b6d4; /* cyan */
-      --a4: #f59e0b; /* amber */
-      --btn: rgba(255,255,255,0.12);
-      --btnHover: rgba(255,255,255,0.18);
-      --focus: 0 0 0 3px rgba(124,58,237,0.35);
+      --brick: #B24A2C;        /* terracotta */
+      --brick-2: #9E3D24;
+      --olive: #6F7B3A;
+      --azure: #2C7DA0;        /* mediterranean sea */
+      --cream: #FFF7EA;
+
+      --line: rgba(44,37,32,.16);
+      --shadow: 0 18px 50px rgba(44,37,32,.12);
+
+      --radius: 18px;
+      --radius-sm: 14px;
+      --max: 1060px;
+      --focus: 0 0 0 4px rgba(178,74,44,.22);
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    html, body { height: 100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--ink);
+
+      /* Parchment background (subtle texture via layered gradients) */
       background:
-        radial-gradient(1200px 900px at 20% -10%, rgba(124,58,237,0.55), transparent 55%),
-        radial-gradient(900px 700px at 100% 0%, rgba(6,182,212,0.35), transparent 55%),
-        radial-gradient(900px 700px at 0% 100%, rgba(34,197,94,0.25), transparent 55%),
-        radial-gradient(1000px 700px at 90% 95%, rgba(245,158,11,0.18), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      overflow-x:hidden;
+        radial-gradient(1200px 800px at 20% 0%, rgba(178,74,44,.08), transparent 60%),
+        radial-gradient(900px 700px at 95% 10%, rgba(44,125,160,.08), transparent 55%),
+        radial-gradient(800px 600px at 10% 95%, rgba(111,123,58,.07), transparent 55%),
+        repeating-linear-gradient(
+          0deg,
+          rgba(44,37,32,.018) 0px,
+          rgba(44,37,32,.018) 1px,
+          transparent 1px,
+          transparent 7px
+        ),
+        linear-gradient(180deg, var(--parchment), var(--parchment-2));
     }
 
     a{ color: inherit; text-decoration:none; }
-    a.underline{ text-decoration: underline; text-decoration-color: rgba(255,255,255,0.35); text-underline-offset: 4px; }
-    a.underline:hover{ text-decoration-color: rgba(255,255,255,0.7); }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 18px 60px;
+    }
 
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 24px; }
-    .topbar{
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: var(--blur);
-      -webkit-backdrop-filter: var(--blur);
-      background: linear-gradient(to bottom, rgba(11,12,16,0.70), rgba(11,12,16,0.25));
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    /* Top bar */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 0 18px;
     }
-    .topbar .inner{
-      max-width: var(--max); margin: 0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 14px 24px;
-    }
+
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight: 650; letter-spacing: 0.2px;
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 240px;
     }
     .logo{
-      width: 30px; height: 30px; border-radius: 10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
       background:
-        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,0.35), transparent 60%),
-        linear-gradient(135deg, rgba(124,58,237,0.95), rgba(6,182,212,0.75));
-      box-shadow: 0 12px 30px rgba(124,58,237,0.25);
-      border: 1px solid rgba(255,255,255,0.15);
+        radial-gradient(12px 12px at 28% 28%, rgba(255,255,255,.55), transparent 65%),
+        linear-gradient(135deg, var(--brick), var(--brick-2));
+      box-shadow: 0 12px 26px rgba(178,74,44,.22);
+      border: 1px solid rgba(255,255,255,.25);
     }
-    nav{
-      display:flex; gap: 16px; align-items:center;
+    .brand-title{
+      line-height: 1.1;
+    }
+    .brand-title b{
+      display:block;
+      font-size: 15px;
+      letter-spacing: -.01em;
+    }
+    .brand-title span{
+      display:block;
+      font-size: 13px;
       color: var(--muted);
-      font-size: 14px;
-    }
-    nav a{
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-    }
-    nav a:hover{
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.08);
-      color: var(--text);
+      margin-top: 2px;
     }
 
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 12px 16px;
-      background: var(--btn);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 14px;
-      box-shadow: var(--shadow2);
-      color: var(--text);
-      font-weight: 600;
+    nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    /* Brick tabs */
+    .tab{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(178,74,44,.12);
+      color: rgba(44,37,32,.92);
+      font-weight: 700;
       font-size: 14px;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
-    .btn:hover{
-      background: var(--btnHover);
-      border-color: rgba(255,255,255,0.22);
+    .tab:hover{
       transform: translateY(-1px);
+      background: rgba(178,74,44,.16);
+      border-color: rgba(255,255,255,.30);
     }
-    .btn:focus{ outline:none; box-shadow: var(--shadow2), var(--focus); }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(124,58,237,0.95), rgba(6,182,212,0.85));
-      border-color: rgba(255,255,255,0.18);
-    }
-    .btn.primary:hover{
-      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(6,182,212,0.95));
-    }
-    .btn.small{ padding: 10px 12px; border-radius: 12px; box-shadow:none; }
+    .tab:focus{ outline:none; box-shadow: var(--focus); }
 
+    .tab.primary{
+      background: linear-gradient(135deg, var(--brick), var(--brick-2));
+      color: var(--cream);
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 12px 28px rgba(178,74,44,.20);
+    }
+    .tab.primary:hover{
+      background: linear-gradient(135deg, #C25534, #A13F25);
+    }
+
+    /* Hero */
     .hero{
-      padding: 44px 0 26px;
-      display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-    @media (max-width: 920px){
-      .hero{ grid-template-columns: 1fr; }
-    }
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
-      border: 1px solid rgba(255,255,255,0.12);
+      margin-top: 6px;
+      border: 1px solid var(--line);
       border-radius: var(--radius);
+      background: rgba(255,247,234,.62);
       box-shadow: var(--shadow);
       overflow:hidden;
-      position:relative;
     }
-    .card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(600px 220px at 30% 0%, rgba(255,255,255,0.14), transparent 55%);
-      pointer-events:none;
-      opacity: .9;
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 14px;
+      padding: 22px;
+      align-items:start;
     }
-    .hero-left{ padding: 34px 34px 26px; }
-    .hero-right{ padding: 18px; display:flex; flex-direction:column; gap:12px; }
+    @media (max-width: 920px){
+      .hero-inner{ grid-template-columns: 1fr; }
+    }
 
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
+    .kicker{
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(44,37,32,.14);
+      background: rgba(255,255,255,.45);
       color: var(--muted);
       font-size: 13px;
       width: fit-content;
-      position: relative;
-      z-index: 1;
     }
-    .dot{
+    .kdot{
       width: 8px; height: 8px; border-radius: 99px;
-      background: linear-gradient(135deg, var(--a1), var(--a3));
-      box-shadow: 0 0 0 3px rgba(124,58,237,0.18);
+      background: var(--olive);
+      box-shadow: 0 0 0 3px rgba(111,123,58,.18);
     }
 
     h1{
-      margin: 14px 0 10px;
-      font-size: clamp(34px, 4.6vw, 56px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      position: relative;
-      z-index: 1;
+      margin: 12px 0 10px;
+      font-size: clamp(28px, 4.2vw, 46px);
+      letter-spacing: -0.03em;
+      line-height: 1.06;
     }
     .sub{
+      margin: 0;
       color: var(--muted);
       font-size: 16px;
-      line-height: 1.6;
-      max-width: 62ch;
-      position: relative;
-      z-index: 1;
+      line-height: 1.65;
+      max-width: 64ch;
     }
+
     .hero-actions{
-      margin-top: 18px;
-      display:flex; flex-wrap:wrap; gap: 10px;
-      position: relative;
-      z-index: 1;
-    }
-    .meta-row{
-      display:flex; flex-wrap:wrap; gap: 10px;
-      margin-top: 14px;
-      color: var(--muted2);
-      font-size: 13px;
-      position: relative;
-      z-index: 1;
-    }
-    .meta-chip{
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 16px;
     }
 
-    .mini{
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 14px;
-      display:flex; gap:12px; align-items:flex-start;
+    /* Side notes */
+    .side{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .mini .ic{
-      width: 38px; height: 38px; border-radius: 14px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      display:flex; align-items:center; justify-content:center;
-      flex: 0 0 auto;
+    .note{
+      border: 1px solid rgba(44,37,32,.14);
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.50);
+      padding: 14px 14px;
     }
-    .mini h3{ margin: 2px 0 4px; font-size: 14px; }
-    .mini p{ margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .note b{ display:block; margin-bottom: 6px; }
+    .note span{ color: var(--muted); font-size: 14px; line-height: 1.5; }
 
-    .section{
-      margin-top: 22px;
-      padding: 0 0 8px;
-    }
+    /* Apps section */
     .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap: 12px;
-      margin: 22px 0 12px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+      margin: 24px 2px 14px;
     }
-    .section-title{
+    .section-head h2{
+      margin:0;
       font-size: 18px;
       letter-spacing: -0.01em;
-      margin:0;
     }
-    .section-note{
-      color: var(--muted2);
-      font-size: 13px;
+    .section-head p{
       margin:0;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .grid{
@@ -259,470 +247,259 @@
       grid-template-columns: repeat(12, 1fr);
       gap: 14px;
     }
-    .product{
+    .card{
       grid-column: span 6;
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(44,37,32,.14);
       border-radius: var(--radius);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow);
       overflow:hidden;
-      box-shadow: var(--shadow2);
-      position:relative;
+      display:flex;
+      flex-direction: column;
+      position: relative;
     }
-    @media (max-width: 860px){
-      .product{ grid-column: span 12; }
+    @media (max-width: 880px){
+      .card{ grid-column: span 12; }
     }
 
-    .product-top{
-      padding: 18px 18px 12px;
-      display:flex; align-items:flex-start; justify-content:space-between; gap: 12px;
+    .card-top{
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid rgba(44,37,32,.12);
+      background: rgba(255,255,255,.38);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
     }
-    .product-title{
-      display:flex; align-items:center; gap: 10px;
+    .card-top h3{
       margin:0;
       font-size: 16px;
-      letter-spacing:-0.01em;
+      letter-spacing: -0.01em;
     }
-    .badge{
+    .pill{
       font-size: 12px;
-      color: rgba(255,255,255,0.80);
+      color: rgba(44,37,32,.80);
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(44,37,32,.14);
+      background: rgba(178,74,44,.10);
       white-space:nowrap;
     }
-    .badge.purple{ border-color: rgba(124,58,237,0.40); background: rgba(124,58,237,0.12); }
-    .badge.cyan{ border-color: rgba(6,182,212,0.38); background: rgba(6,182,212,0.11); }
-    .badge.green{ border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.10); }
-    .badge.amber{ border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.10); }
 
-    .product-body{
-      padding: 0 18px 16px;
+    .card-body{
+      padding: 14px 16px 6px;
       color: var(--muted);
       font-size: 14px;
-      line-height: 1.55;
-    }
-    .product-kpis{
-      display:flex; flex-wrap:wrap; gap: 8px;
-      margin-top: 10px;
-      color: var(--muted2);
-      font-size: 12.5px;
-    }
-    .kpi{
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
+      line-height: 1.62;
+      flex: 1;
     }
 
-    .product-shot{
-      margin: 0 18px 14px;
-      height: 190px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background:
-        radial-gradient(900px 250px at 30% 10%, rgba(255,255,255,0.12), transparent 60%),
-        linear-gradient(135deg, rgba(124,58,237,0.18), rgba(6,182,212,0.10)),
-        rgba(255,255,255,0.03);
+    .chips{
       display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .chip{
+      font-size: 12px;
+      color: rgba(44,37,32,.72);
+      border: 1px solid rgba(44,37,32,.14);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.42);
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      padding: 14px 16px 16px;
+    }
+    .btn{
+      display:inline-flex;
       align-items:center;
       justify-content:center;
-      color: rgba(255,255,255,0.55);
-      font-size: 13px;
-      overflow:hidden;
-    }
-
-    .product-actions{
-      display:flex; flex-wrap:wrap; gap: 10px;
-      padding: 0 18px 18px;
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    @media (max-width: 860px){
-      .split{ grid-template-columns: 1fr; }
-    }
-    .faq{
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.05);
-    }
-    details{
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      padding: 12px 14px;
-      margin: 10px 0;
-    }
-    summary{
-      cursor:pointer;
-      font-weight: 650;
-      color: rgba(255,255,255,0.86);
-      list-style:none;
-    }
-    summary::-webkit-details-marker{ display:none; }
-    details p{
-      margin: 10px 0 0;
-      color: var(--muted);
-      line-height: 1.55;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(44,37,32,.16);
+      background: rgba(255,255,255,.52);
+      color: rgba(44,37,32,.92);
+      font-weight: 750;
       font-size: 14px;
+      transition: transform .15s ease, background .15s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.70); }
+    .btn:focus{ outline:none; box-shadow: var(--focus); }
+
+    .btn.brick{
+      background: linear-gradient(135deg, var(--brick), var(--brick-2));
+      border-color: rgba(255,255,255,.16);
+      color: var(--cream);
+      box-shadow: 0 10px 22px rgba(178,74,44,.16);
+    }
+    .btn.brick:hover{
+      background: linear-gradient(135deg, #C25534, #A13F25);
     }
 
+    .btn.sea{
+      background: linear-gradient(135deg, rgba(44,125,160,.92), rgba(44,125,160,.78));
+      border-color: rgba(255,255,255,.16);
+      color: var(--cream);
+    }
+
+    /* Footer */
     footer{
-      padding: 26px 0 40px;
-      color: var(--muted2);
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(44,37,32,.14);
+      color: var(--muted);
       font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
-    .footer-card{
-      padding: 18px 18px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.05);
-      display:flex; align-items:center; justify-content:space-between; gap: 12px;
-      flex-wrap:wrap;
-    }
-    .fine{ color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 10px; }
-
-    /* small icon svg color */
-    .svg{ width:18px; height:18px; opacity:.9; }
+    footer a{ text-decoration: underline; text-underline-offset: 4px; }
   </style>
 </head>
 
 <body>
-  <!-- Top bar -->
-  <header class="topbar">
-    <div class="inner">
+  <div class="wrap">
+    <header>
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <div>AirMill Studio</div>
+        <div class="brand-title">
+          <b>AirMill Studio</b>
+          <span>Desktop utilities for photographers & file workflows</span>
+        </div>
       </div>
 
-      <nav aria-label="Primary">
-        <a href="#apps">Apps</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn small" href="https://github.com/AirMill" target="_blank" rel="noopener">
-          <svg class="svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.48 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.94.85.09-.67.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.32.1-2.75 0 0 .84-.27 2.75 1.05.8-.23 1.66-.35 2.52-.35.85 0 1.71.12 2.52.35 1.91-1.32 2.75-1.05 2.75-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.64 1.03 2.76 0 3.93-2.34 4.8-4.58 5.05.36.32.68.96.68 1.94 0 1.4-.01 2.53-.01 2.87 0 .26.18.58.69.48A10.2 10.2 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" fill="currentColor"/>
-          </svg>
-          GitHub
-        </a>
+      <nav>
+        <a class="tab" href="#apps">Apps</a>
+        <a class="tab" href="#contact">Contact</a>
+        <a class="tab primary" href="https://github.com/AirMill" target="_blank" rel="noopener">GitHub</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="wrap">
-    <!-- Hero -->
     <section class="hero" aria-label="Hero">
-      <div class="card hero-left">
-        <div class="pill"><span class="dot" aria-hidden="true"></span>Modern utilities for photographers & file workflows</div>
-        <h1>Small apps. Big time savings.</h1>
-        <p class="sub">
-          AirMill Studio builds clean, offline-first desktop tools that help you rename, sort, and convert files fast —
-          with simple UI that non-technical users can actually use.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="#apps">Browse apps</a>
-          <a class="btn" href="https://github.com/AirMill?tab=repositories" target="_blank" rel="noopener">View repositories</a>
-          <a class="btn" href="mailto:air.mobi@mail.ru">Contact</a>
-        </div>
-
-        <div class="meta-row" aria-label="Highlights">
-          <div class="meta-chip">✅ Offline-first</div>
-          <div class="meta-chip">⚡ Fast setup</div>
-          <div class="meta-chip">🧩 Simple UI</div>
-          <div class="meta-chip">🪟 Windows / 🍎 macOS (where available)</div>
-        </div>
-      </div>
-
-      <div class="card hero-right">
-        <div class="mini">
-          <div class="ic" aria-hidden="true">⬇️</div>
-          <div>
-            <h3>Downloads via GitHub Releases</h3>
-            <p>Each app has a “Latest Release” link — no code, no setup.</p>
-          </div>
-        </div>
-
-        <div class="mini">
-          <div class="ic" aria-hidden="true">🛡️</div>
-          <div>
-            <h3>Privacy-minded</h3>
-            <p>Apps run locally on your computer. No file uploads.</p>
-          </div>
-        </div>
-
-        <div class="mini">
-          <div class="ic" aria-hidden="true">🧠</div>
-          <div>
-            <h3>Built for real workflows</h3>
-            <p>Made for photographers, creators, and anyone managing lots of files.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Apps -->
-    <section class="section" id="apps" aria-label="Apps">
-      <div class="section-head">
-        <h2 class="section-title">Apps</h2>
-        <p class="section-note">Tip: replace screenshot placeholders with real images from your repo.</p>
-      </div>
-
-      <div class="grid">
-        <!-- APP 1: File Renamer -->
-        <article class="product" aria-label="Files Renaming">
-          <div class="product-top">
-            <h3 class="product-title">
-              Files Renaming
-              <span class="badge purple">Desktop</span>
-            </h3>
-            <span class="badge">Latest</span>
-          </div>
-
-          <div class="product-body">
-            Batch rename files across folders with rules, preview changes, and keep your workflow clean.
-            <div class="product-kpis">
-              <span class="kpi">Recursive folders</span>
-              <span class="kpi">Rename rules</span>
-              <span class="kpi">Preview before apply</span>
-            </div>
-          </div>
-
-          <div class="product-shot">
-            Screenshot placeholder (assets/renamer.png)
-          </div>
-
-          <div class="product-actions">
-            <a id="renamerRelease" class="btn primary" href="#" target="_blank" rel="noopener">Download (Latest)</a>
-            <a id="renamerRepo" class="btn" href="#" target="_blank" rel="noopener">View project</a>
-          </div>
-        </article>
-
-        <!-- APP 2: RAW to JPG -->
-        <article class="product" aria-label="RAW to JPG">
-          <div class="product-top">
-            <h3 class="product-title">
-              RAW → JPG
-              <span class="badge cyan">Photography</span>
-            </h3>
-            <span class="badge">Latest</span>
-          </div>
-
-          <div class="product-body">
-            Convert RAW photos to JPG in batches with a simple interface. Designed for quick delivery workflows.
-            <div class="product-kpis">
-              <span class="kpi">Batch convert</span>
-              <span class="kpi">Simple UI</span>
-              <span class="kpi">Fast results</span>
-            </div>
-          </div>
-
-          <div class="product-shot">
-            Screenshot placeholder (assets/raw2jpg.png)
-          </div>
-
-          <div class="product-actions">
-            <a id="rawRelease" class="btn primary" href="#" target="_blank" rel="noopener">Download (Latest)</a>
-            <a id="rawRepo" class="btn" href="#" target="_blank" rel="noopener">View project</a>
-          </div>
-        </article>
-
-        <!-- APP 3: Virtual Enigma -->
-        <article class="product" aria-label="Virtual Enigma">
-          <div class="product-top">
-            <h3 class="product-title">
-              Virtual Enigma
-              <span class="badge green">Educational</span>
-            </h3>
-            <span class="badge">Source</span>
-          </div>
-
-          <div class="product-body">
-            An Enigma-inspired cipher simulator with a GUI for learning and experimenting.
-            <div class="product-kpis">
-              <span class="kpi">GUI</span>
-              <span class="kpi">Cipher simulation</span>
-              <span class="kpi">Share settings</span>
-            </div>
-          </div>
-
-          <div class="product-shot">
-            Screenshot placeholder (assets/enigma.png)
-          </div>
-
-          <div class="product-actions">
-            <a id="enigmaRepo" class="btn primary" href="#" target="_blank" rel="noopener">View project</a>
-            <a id="enigmaReleases" class="btn" href="#" target="_blank" rel="noopener">Releases</a>
-          </div>
-        </article>
-
-        <!-- APP 4: Placeholder -->
-        <article class="product" aria-label="Your next app">
-          <div class="product-top">
-            <h3 class="product-title">
-              Your next app
-              <span class="badge amber">Coming</span>
-            </h3>
-            <span class="badge">Idea</span>
-          </div>
-
-          <div class="product-body">
-            Add your next project here — keep this page as your “mini studio” portfolio.
-            <div class="product-kpis">
-              <span class="kpi">Clean UI</span>
-              <span class="kpi">Offline-first</span>
-              <span class="kpi">Fast installs</span>
-            </div>
-          </div>
-
-          <div class="product-shot">
-            Screenshot placeholder (assets/next.png)
-          </div>
-
-          <div class="product-actions">
-            <a class="btn primary" href="https://github.com/AirMill?tab=repositories" target="_blank" rel="noopener">
-              Explore repos
-            </a>
-            <a class="btn" href="#faq">FAQ</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- FAQ + Notes -->
-    <section class="section split" id="faq" aria-label="FAQ">
-      <div class="faq">
-        <div class="section-head" style="margin-top:0">
-          <h2 class="section-title">FAQ</h2>
-          <p class="section-note">Short answers for normal users.</p>
-        </div>
-
-        <details>
-          <summary>Where do I download the app?</summary>
-          <p>
-            Use the <b>Download (Latest)</b> button — it opens the app’s GitHub <b>Releases</b> page.
-            Download the file for your system (Windows .exe, macOS .dmg/.zip if available).
-          </p>
-        </details>
-
-        <details>
-          <summary>Windows shows a warning (“protected your PC”). Is it safe?</summary>
-          <p>
-            This is common for apps without a paid code-signing certificate.
-            Download only from the official Releases page on this GitHub account.
-            On the warning screen choose <b>More info</b> → <b>Run anyway</b>.
-          </p>
-        </details>
-
-        <details>
-          <summary>Do these apps upload my files?</summary>
-          <p>
-            No. These tools are designed to run locally. Your files stay on your computer.
-          </p>
-        </details>
-      </div>
-
-      <div class="faq">
-        <div class="section-head" style="margin-top:0">
-          <h2 class="section-title">For contributors</h2>
-          <p class="section-note">If you’re technical.</p>
-        </div>
-
-        <details>
-          <summary>How do I report bugs or request features?</summary>
-          <p>
-            Open an issue on the specific app repository and include: OS version, app version, steps to reproduce,
-            and screenshots if possible.
-          </p>
-        </details>
-
-        <details>
-          <summary>Can I translate the UI?</summary>
-          <p>
-            Yes — open an issue and we can add a simple translations file per app.
-          </p>
-        </details>
-
-        <details>
-          <summary>What’s the roadmap?</summary>
-          <p>
-            Cleaner UI, better installers, and more photographer-focused workflow tools.
-          </p>
-        </details>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-card">
+      <div class="hero-inner">
         <div>
-          <div style="font-weight:650; color: rgba(255,255,255,0.86);">AirMill Studio</div>
-          <div style="margin-top:6px;">Built by AirMill • Warsaw / EU time • Offline-first utilities</div>
-          <div class="fine">Contact: <a class="underline" href="mailto:air.mobi@mail.ru">air.mobi@mail.ru</a></div>
+          <div class="kicker"><span class="kdot" aria-hidden="true"></span>Offline-first • Simple UI • Downloads via Releases</div>
+          <h1>Simple design.<br>Practical apps.</h1>
+          <p class="sub">
+            Small, focused desktop tools that help you rename, sort and convert files fast —
+            designed for real workflows, not for programmers.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn brick" href="#apps">Browse apps</a>
+            <a class="btn" href="https://github.com/AirMill?tab=repositories" target="_blank" rel="noopener">All repositories</a>
+            <a class="btn sea" href="mailto:air.mobi@mail.ru">Email</a>
+          </div>
         </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn" href="https://github.com/AirMill" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn primary" href="mailto:air.mobi@mail.ru">Contact</a>
+
+        <div class="side">
+          <div class="note">
+            <b>Downloads</b>
+            <span>Use <b>Download</b> to open the latest GitHub Release (recommended for normal users).</span>
+          </div>
+          <div class="note">
+            <b>Privacy</b>
+            <span>Apps run locally. Your files stay on your computer.</span>
+          </div>
+          <div class="note">
+            <b>Support</b>
+            <span>Open an issue on the app repository if something breaks.</span>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <div class="section-head" id="apps">
+      <h2>Apps</h2>
+      <p>Links updated to your current repo names.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Files Renaming -->
+      <article class="card">
+        <div class="card-top">
+          <div>
+            <h3>Files Renaming</h3>
+            <div class="pill">Desktop utility</div>
+          </div>
+        </div>
+        <div class="card-body">
+          Batch rename files across folders with a simple workflow.
+          <div class="chips">
+            <span class="chip">Preview-first</span>
+            <span class="chip">Folder workflows</span>
+            <span class="chip">Photographer-friendly</span>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn brick" href="https://github.com/AirMill/Files_renaming/releases/latest" target="_blank" rel="noopener">Download</a>
+          <a class="btn" href="https://github.com/AirMill/Files_renaming" target="_blank" rel="noopener">Project</a>
+        </div>
+      </article>
+
+      <!-- RAW to JPG -->
+      <article class="card">
+        <div class="card-top">
+          <div>
+            <h3>RAW → JPG</h3>
+            <div class="pill">Photography</div>
+          </div>
+        </div>
+        <div class="card-body">
+          Convert RAW photos to JPG in batches with a clean, straightforward interface.
+          <div class="chips">
+            <span class="chip">Batch convert</span>
+            <span class="chip">Fast workflow</span>
+            <span class="chip">Simple UI</span>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn brick" href="https://github.com/AirMill/Raw_to_Jpg/releases/latest" target="_blank" rel="noopener">Download</a>
+          <a class="btn" href="https://github.com/AirMill/Raw_to_Jpg" target="_blank" rel="noopener">Project</a>
+        </div>
+      </article>
+
+      <!-- Virtual Enigma -->
+      <article class="card">
+        <div class="card-top">
+          <div>
+            <h3>Virtual Enigma</h3>
+            <div class="pill">Educational</div>
+          </div>
+        </div>
+        <div class="card-body">
+          An Enigma-inspired cipher simulator with a GUI for learning and experimenting.
+          <div class="chips">
+            <span class="chip">GUI</span>
+            <span class="chip">Cipher simulation</span>
+            <span class="chip">Share settings</span>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn brick" href="https://github.com/AirMill/Virtual_Enigma/releases/latest" target="_blank" rel="noopener">Download</a>
+          <a class="btn" href="https://github.com/AirMill/Virtual_Enigma" target="_blank" rel="noopener">Project</a>
+        </div>
+      </article>
+
+      <!-- Add more cards by copying one above -->
+    </div>
+
+    <footer id="contact">
+      <div>
+        <b>AirMill Studio</b> — contact: <a href="mailto:air.mobi@mail.ru">air.mobi@mail.ru</a>
+      </div>
+      <div>
+        <a href="https://github.com/AirMill" target="_blank" rel="noopener">GitHub</a>
       </div>
     </footer>
-  </main>
-
-  <script>
-    // ✅ Edit repo names here ONCE after you rename repositories:
-    // Examples:
-    // const RENAMER_REPO = "photo-renamer";
-    // const RAW_REPO     = "raw-to-jpeg";
-    // const ENIGMA_REPO  = "virtual-enigma";
-    const GH_USER = "AirMill";
-
-    const RENAMER_REPO = "Files_renaming";
-    const RAW_REPO     = "Raw_to_Jpg";
-    const ENIGMA_REPO  = "Virtual_Enigma";
-
-    function ghRepoUrl(repo) {
-      return `https://github.com/${GH_USER}/${repo}`;
-    }
-    function ghReleaseLatestUrl(repo) {
-      return `https://github.com/${GH_USER}/${repo}/releases/latest`;
-    }
-    function ghReleasesUrl(repo) {
-      return `https://github.com/${GH_USER}/${repo}/releases`;
-    }
-
-    // Wire buttons
-    const renamerRelease = document.getElementById("renamerRelease");
-    const renamerRepo    = document.getElementById("renamerRepo");
-    const rawRelease     = document.getElementById("rawRelease");
-    const rawRepo        = document.getElementById("rawRepo");
-    const enigmaRepo     = document.getElementById("enigmaRepo");
-    const enigmaReleases = document.getElementById("enigmaReleases");
-
-    if (renamerRelease) renamerRelease.href = ghReleaseLatestUrl(RENAMER_REPO);
-    if (renamerRepo)    renamerRepo.href    = ghRepoUrl(RENAMER_REPO);
-
-    if (rawRelease) rawRelease.href = ghReleaseLatestUrl(RAW_REPO);
-    if (rawRepo)    rawRepo.href    = ghRepoUrl(RAW_REPO);
-
-    if (enigmaRepo)     enigmaRepo.href     = ghRepoUrl(ENIGMA_REPO);
-    if (enigmaReleases) enigmaReleases.href = ghReleasesUrl(ENIGMA_REPO);
-
-    // Tiny polish: smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener("click", (e) => {
-        const id = a.getAttribute("href");
-        const el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.pushState(null, "", id);
-      });
-    });
-  </script>
+  </div>
 </body>
 </html>
