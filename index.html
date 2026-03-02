@@ -11,7 +11,7 @@
   <link rel="icon" href="favicon.ico?v=4" sizes="any">
   <link rel="shortcut icon" href="favicon.ico?v=4">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=4">  
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=4">
 
   <meta property="og:title" content="AirMill Studio" />
   <meta property="og:description" content="Practical desktop tools for photographers and file workflows." />
@@ -90,7 +90,7 @@
       min-width: 260px;
     }
 
-    /* ✅ UPDATED: logo now displays your light & sunny image */
+    /* ✅ UPDATED: logo uses a real image */
     .logo{
       width: 38px;
       height: 38px;
@@ -376,6 +376,40 @@
       flex-wrap: wrap;
     }
     footer a{ text-decoration: underline; text-underline-offset: 4px; }
+
+    /* ✅ NEW: optional screenshot layout inside each app card body */
+    .card-body.has-shot{
+      display: flex;
+      gap: 14px;
+      align-items: flex-end; /* keep screenshot aligned to bottom */
+    }
+    .card-body.has-shot .card-text{
+      flex: 2;              /* ~2/3 */
+      min-width: 0;
+    }
+    .card-body.has-shot .card-shot{
+      flex: 1;              /* ~1/3 */
+      display: block;
+    }
+    .card-body.has-shot .card-shot img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid rgba(44,37,32,.14);
+      background: rgba(255,255,255,.46);
+      box-shadow: 0 12px 26px rgba(44,37,32,.10);
+    }
+    .card-shot{ display:none; }
+    .card-body.has-shot .card-shot{ display:block; }
+
+    @media (max-width: 720px){
+      .card-body.has-shot{
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .card-body.has-shot .card-shot{ order: 2; }
+    }
   </style>
 </head>
 
@@ -383,9 +417,8 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <!-- ✅ UPDATED: logo image + updated brand text -->
+        <!-- ✅ logo image -->
         <div class="logo" aria-hidden="true">
-          <!-- Put your generated logo here: /assets/airmill-logo.png -->
           <img src="assets/airmill-logo.png" alt="" width="38" height="38" loading="eager" decoding="async">
         </div>
         <div class="brand-title">
@@ -441,7 +474,7 @@
     </div>
 
     <div class="grid">
-      <!-- Files Renaming -->
+      <!-- Files Renaming (pinned) -->
       <article class="card">
         <div class="card-top">
           <div>
@@ -449,21 +482,28 @@
             <div class="pill">Desktop utility</div>
           </div>
         </div>
-        <div class="card-body">
-          Batch rename files across folders with a simple workflow.
-          <div class="chips">
-            <span class="chip">Preview-first</span>
-            <span class="chip">Folder workflows</span>
-            <span class="chip">Photographer-friendly</span>
+
+        <div class="card-body has-shot" data-shot="assets/files-renaming/website-promo.png">
+          <div class="card-text">
+            Batch rename files across folders with a simple workflow.
+            <div class="chips">
+              <span class="chip">Preview-first</span>
+              <span class="chip">Folder workflows</span>
+              <span class="chip">Photographer-friendly</span>
+            </div>
+          </div>
+          <div class="card-shot" aria-hidden="true">
+            <img src="" alt="" loading="lazy" decoding="async">
           </div>
         </div>
+
         <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/Files_renaming/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/Files_renaming" target="_blank" rel="noopener">Project</a>
+          <a class="btn brick" href="https://github.com/AirMill/Files-Renaming/releases/latest" target="_blank" rel="noopener">Download</a>
+          <a class="btn" href="https://github.com/AirMill/Files-Renaming" target="_blank" rel="noopener">Project</a>
         </div>
       </article>
 
-      <!-- RAW to JPG -->
+      <!-- RAW to JPG (pinned) -->
       <article class="card">
         <div class="card-top">
           <div>
@@ -471,21 +511,28 @@
             <div class="pill">Photography</div>
           </div>
         </div>
-        <div class="card-body">
-          Convert RAW photos to JPG in batches with a clean, straightforward interface.
-          <div class="chips">
-            <span class="chip">Batch convert</span>
-            <span class="chip">Fast workflow</span>
-            <span class="chip">Simple UI</span>
+
+        <div class="card-body has-shot" data-shot="assets/raw-to-jpg/website-promo.png">
+          <div class="card-text">
+            Convert RAW photos to JPG in batches with a clean, straightforward interface.
+            <div class="chips">
+              <span class="chip">Batch convert</span>
+              <span class="chip">Fast workflow</span>
+              <span class="chip">Simple UI</span>
+            </div>
+          </div>
+          <div class="card-shot" aria-hidden="true">
+            <img src="" alt="" loading="lazy" decoding="async">
           </div>
         </div>
+
         <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/Raw_to_Jpg/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/Raw_to_Jpg" target="_blank" rel="noopener">Project</a>
+          <a class="btn brick" href="https://github.com/AirMill/Raw-To-Jpg/releases/latest" target="_blank" rel="noopener">Download</a>
+          <a class="btn" href="https://github.com/AirMill/Raw-To-Jpg" target="_blank" rel="noopener">Project</a>
         </div>
       </article>
 
-      <!-- Virtual Enigma -->
+      <!-- Virtual Enigma (pinned) -->
       <article class="card">
         <div class="card-top">
           <div>
@@ -493,17 +540,82 @@
             <div class="pill">Educational</div>
           </div>
         </div>
-        <div class="card-body">
-          An Enigma-inspired cipher simulator with a GUI for learning and experimenting.
-          <div class="chips">
-            <span class="chip">GUI</span>
-            <span class="chip">Cipher simulation</span>
-            <span class="chip">Share settings</span>
+
+        <div class="card-body has-shot" data-shot="assets/virtual-enigma/website-promo.png">
+          <div class="card-text">
+            An Enigma-inspired cipher simulator with a GUI for learning and experimenting.
+            <div class="chips">
+              <span class="chip">GUI</span>
+              <span class="chip">Cipher simulation</span>
+              <span class="chip">Share settings</span>
+            </div>
+          </div>
+          <div class="card-shot" aria-hidden="true">
+            <img src="" alt="" loading="lazy" decoding="async">
           </div>
         </div>
+
         <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/Virtual_Enigma/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/Virtual_Enigma" target="_blank" rel="noopener">Project</a>
+          <a class="btn brick" href="https://github.com/AirMill/Virtual-Enigma/releases/latest" target="_blank" rel="noopener">Download</a>
+          <a class="btn" href="https://github.com/AirMill/Virtual-Enigma" target="_blank" rel="noopener">Project</a>
+        </div>
+      </article>
+
+      <!-- Golden Ratio Calculator (pinned) -->
+      <article class="card">
+        <div class="card-top">
+          <div>
+            <h3>Golden Ratio Calculator</h3>
+            <div class="pill">Utility</div>
+          </div>
+        </div>
+
+        <div class="card-body has-shot" data-shot="assets/goldenratio-calculator/website-promo.png">
+          <div class="card-text">
+            A small calculator for golden ratio conversions and quick checks.
+            <div class="chips">
+              <span class="chip">Fast input</span>
+              <span class="chip">Clean UI</span>
+              <span class="chip">Handy tool</span>
+            </div>
+          </div>
+          <div class="card-shot" aria-hidden="true">
+            <img src="" alt="" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn brick" href="https://github.com/AirMill/GoldenRatio-Calculator/releases/latest" target="_blank" rel="noopener">Download</a>
+          <a class="btn" href="https://github.com/AirMill/GoldenRatio-Calculator" target="_blank" rel="noopener">Project</a>
+        </div>
+      </article>
+
+      <!-- Custom PrintScreen (pinned) -->
+      <article class="card">
+        <div class="card-top">
+          <div>
+            <h3>Custom PrintScreen</h3>
+            <div class="pill">Productivity</div>
+          </div>
+        </div>
+
+        <div class="card-body has-shot" data-shot="assets/custom-printscreen/website-promo.png">
+          <div class="card-text">
+            A hovering screenshot button that saves captures to a selected folder as JPG.
+            <div class="chips">
+              <span class="chip">Quick capture</span>
+              <span class="chip">Folder save</span>
+              <span class="chip">Simple workflow</span>
+            </div>
+          </div>
+          <div class="card-shot" aria-hidden="true">
+            <img src="" alt="" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn brick" href="https://github.com/AirMill/Custom-PrintScreen/releases/latest" target="_blank" rel="noopener">Download</a>
+          <a class="btn" href="https://github.com/AirMill/Custom-PrintScreen" target="_blank" rel="noopener">Project</a>
         </div>
       </article>
     </div>
@@ -517,5 +629,25 @@
       </div>
     </footer>
   </div>
+
+  <!-- ✅ NEW: auto-hide screenshots if the file does not exist -->
+  <script>
+    (function () {
+      const bodies = document.querySelectorAll('.card-body[data-shot]');
+      bodies.forEach((body) => {
+        const url = body.getAttribute('data-shot');
+        const img = body.querySelector('.card-shot img');
+        if (!url || !img) return;
+
+        img.src = url;
+
+        img.addEventListener('error', () => {
+          body.classList.remove('has-shot');
+          const shot = body.querySelector('.card-shot');
+          if (shot) shot.style.display = 'none';
+        }, { once: true });
+      });
+    })();
+  </script>
 </body>
 </html>
