@@ -1,0 +1,90 @@
+[
+  {
+    "title": "EXIF Editor",
+    "category": "Photography",
+    "description": "Edit image metadata quickly and safely. Modify EXIF tags, write keywords and batch update metadata for multiple photos using a simple interface.",
+    "chips": ["Batch metadata edit", "Keywords support", "Photographer workflow"],
+    "platforms": ["windows"],
+    "image": "https://raw.githubusercontent.com/AirMill/EXIF-Editor/main/assets/website-promo.png",
+    "download": "https://github.com/AirMill/EXIF-Editor/releases/latest",
+    "project": "https://github.com/AirMill/EXIF-Editor",
+    "order": 1
+  },
+  {
+    "title": "RAW → JPG",
+    "category": "Photography",
+    "description": "Convert RAW photos to JPG in batches with a clean, straightforward interface. Useful for photographers, real-estate work and large shoots.",
+    "chips": ["Batch RAW convertor", "Fast workflow", "Simple UI"],
+    "platforms": ["windows", "mac", "linux"],
+    "image": "https://raw.githubusercontent.com/AirMill/Raw-To-Jpg/main/assets/website-promo.png",
+    "download": "https://github.com/AirMill/Raw-To-Jpg/releases/latest",
+    "project": "https://github.com/AirMill/Raw-To-Jpg",
+    "order": 2
+  },
+  {
+    "title": "Files Renaming",
+    "category": "File management",
+    "description": "Batch rename files across folders with a simple workflow. Useful for images, office documents and structured file sets.",
+    "chips": ["Preview-first", "Files renaming", "Photographer-friendly"],
+    "platforms": ["windows", "mac", "linux"],
+    "image": "https://raw.githubusercontent.com/AirMill/Files-Renaming/main/assets/website-promo.png",
+    "download": "https://github.com/AirMill/Files-Renaming/releases/latest",
+    "project": "https://github.com/AirMill/Files-Renaming",
+    "order": 3
+  },
+  {
+    "title": "Symbol Removing for File Management",
+    "category": "File management",
+    "description": "Clean file names by removing or replacing unwanted symbols in batch. Ideal for photographers, office workflows and structured folders.",
+    "chips": ["Batch rename", "Symbol removal", "Safe workflow"],
+    "platforms": ["windows"],
+    "image": "https://raw.githubusercontent.com/AirMill/Symbol-Removing-For-Filemanagement/main/assets/website-promo.png",
+    "download": "https://github.com/AirMill/Symbol-Removing-For-Filemanagement/releases/latest",
+    "project": "https://github.com/AirMill/Symbol-Removing-For-Filemanagement",
+    "order": 4
+  },
+  {
+    "title": "Virtual Enigma",
+    "category": "Educational",
+    "description": "A fully functional Enigma coder with a GUI for learning, demonstration and experimentation.",
+    "chips": ["Imitation Game", "GUI Cipher", "Enigma"],
+    "platforms": ["windows", "mac", "linux"],
+    "image": "https://raw.githubusercontent.com/AirMill/Virtual-Enigma/main/assets/website-promo.png",
+    "download": "https://github.com/AirMill/Virtual-Enigma/releases/latest",
+    "project": "https://github.com/AirMill/Virtual-Enigma",
+    "order": 5
+  },
+  {
+    "title": "Bbl → Mt Convertor",
+    "category": "Oil & Gas",
+    "description": "Convert crude oil volumes from barrels to metric tonnes with blend presets, API input and temperature adjustment estimate.",
+    "chips": ["Preset blends", "API & density", "PDF export"],
+    "platforms": ["windows"],
+    "image": "https://raw.githubusercontent.com/AirMill/Bbl-Mt-Convertor/main/assets/website-promo.png",
+    "download": "https://github.com/AirMill/Bbl-Mt-Convertor/releases/latest",
+    "project": "https://github.com/AirMill/Bbl-Mt-Convertor",
+    "order": 6
+  },
+  {
+    "title": "Golden Ratio Calculator",
+    "category": "Utility",
+    "description": "Quick golden ratio conversions for design and measurement checks. Uses ancient Greek math to find the best proportions for any number.",
+    "chips": ["Fast input", "Clean UI", "Handy tool"],
+    "platforms": ["windows", "mac", "linux"],
+    "image": "https://raw.githubusercontent.com/AirMill/GoldenRatio-Calculator/main/assets/website-promo.png",
+    "download": "https://github.com/AirMill/GoldenRatio-Calculator/releases/latest",
+    "project": "https://github.com/AirMill/GoldenRatio-Calculator",
+    "order": 7
+  },
+  {
+    "title": "Custom PrintScreen",
+    "category": "Productivity",
+    "description": "Hovering button to capture screenshots and save them to a selected folder as JPG. Lets you choose JPEG output parameters.",
+    "chips": ["Quick capture", "Save to folder", "Simple workflow"],
+    "platforms": ["windows", "mac", "linux"],
+    "image": "https://raw.githubusercontent.com/AirMill/Custom-PrintScreen/main/assets/website-promo.png",
+    "download": "https://github.com/AirMill/Custom-PrintScreen/releases/latest",
+    "project": "https://github.com/AirMill/Custom-PrintScreen",
+    "order": 8
+  }
+]

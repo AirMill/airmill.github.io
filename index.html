@@ -7,11 +7,10 @@
   <title>AirMill Studio</title>
   <meta name="description" content="AirMill Studio — practical desktop tools for photographers, real-estate agents and files management." />
 
-  <!-- Favicons (upload these files to repo root next to index.html) -->
   <link rel="icon" href="favicon.ico?v=4" sizes="any">
   <link rel="shortcut icon" href="favicon.ico?v=4">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=4">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=4">  
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=4">
 
   <meta property="og:title" content="AirMill Studio" />
   <meta property="og:description" content="Practical desktop tools for photographers, real-estate agents and files management." />
@@ -20,15 +19,14 @@
 
   <style>
     :root{
-      /* Southern France palette */
       --parchment: #F4E8D5;
       --parchment2:#EFE1C8;
       --cream:     #FFF7EA;
 
-      --ink:       #2C2520;          /* warm dark brown */
+      --ink:       #2C2520;
       --muted:     rgba(44,37,32,.68);
 
-      --brick:     #B24A2C;          /* terracotta */
+      --brick:     #B24A2C;
       --brick2:    #9E3D24;
       --brickSoft: rgba(178,74,44,.12);
 
@@ -47,12 +45,11 @@
 
     *{ box-sizing:border-box; }
     html, body { height: 100%; }
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--ink);
-
-      /* Parchment background with subtle texture */
       background:
         radial-gradient(1100px 750px at 18% 0%, rgba(178,74,44,.08), transparent 60%),
         radial-gradient(900px 650px at 96% 10%, rgba(44,125,160,.08), transparent 55%),
@@ -68,13 +65,13 @@
     }
 
     a{ color: inherit; text-decoration:none; }
+
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
       padding: 26px 18px 62px;
     }
 
-    /* Top */
     header{
       display:flex;
       align-items:center;
@@ -90,7 +87,6 @@
       min-width: 260px;
     }
 
-    /* ✅ UPDATED: logo uses a real image */
     .logo{
       width: 38px;
       height: 38px;
@@ -102,6 +98,7 @@
       display: grid;
       place-items: center;
     }
+
     .logo img{
       width: 100%;
       height: 100%;
@@ -112,11 +109,13 @@
     .brand-title{
       line-height: 1.12;
     }
+
     .brand-title b{
       display:block;
       font-size: 15px;
       letter-spacing: -.01em;
     }
+
     .brand-title span{
       display:block;
       font-size: 13px;
@@ -132,7 +131,6 @@
       align-items:center;
     }
 
-    /* Brick tabs */
     .tab{
       display:inline-flex;
       align-items:center;
@@ -147,11 +145,13 @@
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       white-space: nowrap;
     }
+
     .tab:hover{
       transform: translateY(-1px);
       background: rgba(178,74,44,.16);
       border-color: rgba(255,255,255,.30);
     }
+
     .tab:focus{ outline:none; box-shadow: var(--focus); }
 
     .tab.primary{
@@ -160,11 +160,11 @@
       border-color: rgba(255,255,255,.18);
       box-shadow: 0 12px 28px rgba(178,74,44,.20);
     }
+
     .tab.primary:hover{
       background: linear-gradient(135deg, #C25534, #A13F25);
     }
 
-    /* Hero */
     .hero{
       margin-top: 6px;
       border: 1px solid var(--line);
@@ -173,6 +173,7 @@
       box-shadow: var(--shadow);
       overflow:hidden;
     }
+
     .hero-inner{
       display:grid;
       grid-template-columns: 1.25fr 0.75fr;
@@ -180,6 +181,7 @@
       padding: 22px;
       align-items:start;
     }
+
     @media (max-width: 920px){
       .hero-inner{ grid-template-columns: 1fr; }
     }
@@ -196,8 +198,11 @@
       font-size: 13px;
       width: fit-content;
     }
+
     .kdot{
-      width: 8px; height: 8px; border-radius: 99px;
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
       background: var(--olive);
       box-shadow: 0 0 0 3px rgba(111,123,58,.18);
     }
@@ -208,6 +213,7 @@
       letter-spacing: -0.03em;
       line-height: 1.06;
     }
+
     .sub{
       margin: 0;
       color: var(--muted);
@@ -223,7 +229,6 @@
       margin-top: 16px;
     }
 
-    /* Buttons */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -238,7 +243,12 @@
       transition: transform .15s ease, background .15s ease;
       white-space: nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.74); }
+
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.74);
+    }
+
     .btn:focus{ outline:none; box-shadow: var(--focus); }
 
     .btn.brick{
@@ -247,31 +257,38 @@
       color: var(--cream);
       box-shadow: 0 10px 22px rgba(178,74,44,.16);
     }
+
     .btn.brick:hover{
       background: linear-gradient(135deg, #C25534, #A13F25);
     }
+
     .btn.sea{
       background: linear-gradient(135deg, rgba(44,125,160,.95), rgba(44,125,160,.78));
       border-color: rgba(255,255,255,.16);
       color: var(--cream);
     }
 
-    /* Side notes */
     .side{
       display:flex;
       flex-direction: column;
       gap: 12px;
     }
+
     .note{
       border: 1px solid rgba(44,37,32,.14);
       border-radius: var(--radiusSm);
       background: rgba(255,255,255,.54);
       padding: 14px 14px;
     }
-    .note b{ display:block; margin-bottom: 6px; }
-    .note span{ color: var(--muted); font-size: 14px; line-height: 1.5; }
 
-    /* Apps section */
+    .note b{ display:block; margin-bottom: 6px; }
+
+    .note span{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
     .section-head{
       display:flex;
       align-items:flex-end;
@@ -279,11 +296,13 @@
       gap: 12px;
       margin: 24px 2px 14px;
     }
+
     .section-head h2{
       margin:0;
       font-size: 18px;
       letter-spacing: -0.01em;
     }
+
     .section-head p{
       margin:0;
       color: var(--muted);
@@ -295,6 +314,7 @@
       grid-template-columns: repeat(12, 1fr);
       gap: 14px;
     }
+
     .card{
       grid-column: span 6;
       border: 1px solid rgba(44,37,32,.14);
@@ -305,6 +325,7 @@
       display:flex;
       flex-direction: column;
     }
+
     @media (max-width: 880px){
       .card{ grid-column: span 12; }
     }
@@ -318,11 +339,21 @@
       justify-content:space-between;
       gap: 10px;
     }
+
+    .card-top > div{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:10px;
+    }
+
     .card-top h3{
       margin:0;
       font-size: 16px;
       letter-spacing: -0.01em;
+      flex-basis:100%;
     }
+
     .pill{
       font-size: 12px;
       color: rgba(44,37,32,.80);
@@ -331,6 +362,7 @@
       border: 1px solid rgba(44,37,32,.14);
       background: rgba(178,74,44,.10);
       white-space:nowrap;
+      margin:0;
     }
 
     .card-body{
@@ -347,6 +379,7 @@
       gap: 8px;
       margin-top: 10px;
     }
+
     .chip{
       font-size: 12px;
       color: rgba(44,37,32,.72);
@@ -375,22 +408,28 @@
       gap: 12px;
       flex-wrap: wrap;
     }
-    footer a{ text-decoration: underline; text-underline-offset: 4px; }
 
-    /* ✅ Optional screenshot layout inside each app card body */
-    .card-body.has-shot{
-      display: flex;
-      gap: 14px;
-      align-items: flex-end; /* screenshot aligned to bottom */
+    footer a{
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
+
+    .card-body.has-shot{
+      display:flex;
+      gap: 14px;
+      align-items:flex-end;
+    }
+
     .card-body.has-shot .card-text{
-      flex: 2;              /* ~2/3 */
+      flex: 2;
       min-width: 0;
     }
+
     .card-body.has-shot .card-shot{
-      flex: 1;              /* ~1/3 */
+      flex: 1;
       display: block;
     }
+
     .card-body.has-shot .card-shot img{
       width: 100%;
       height: auto;
@@ -400,6 +439,7 @@
       background: rgba(255,255,255,.46);
       box-shadow: 0 12px 26px rgba(44,37,32,.10);
     }
+
     .card-shot{ display:none; }
     .card-body.has-shot .card-shot{ display:block; }
 
@@ -409,21 +449,6 @@
         align-items: stretch;
       }
       .card-body.has-shot .card-shot{ order: 2; }
-    }
-    /* OS logo line */
-    .card-top > div{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      gap:10px;
-    }
-
-    .card-top h3{
-      flex-basis:100%;   /* title on its own row */
-    }
-
-    .pill{
-      margin:0;
     }
 
     .os-line{
@@ -449,7 +474,16 @@
       height:14px;
       fill: rgba(44,37,32,.75);
     }
-    </style>
+
+    .grid-message{
+      grid-column: span 12;
+      color: var(--muted);
+      border: 1px dashed rgba(44,37,32,.18);
+      border-radius: var(--radiusSm);
+      padding: 14px 16px;
+      background: rgba(255,255,255,.35);
+    }
+  </style>
 </head>
 
 <body>
@@ -510,416 +544,141 @@
       <p>Downloads hosted on GitHub Releases.</p>
     </div>
 
-    <div class="grid">
-      
-      <!-- EXIF Editor -->
-      <article class="card">
-        <div class="card-top">
-          <div>
-            <h3>EXIF Editor</h3>
-            <div class="pill">Photography</div>
-
-            <div class="os-line">
-              <span class="os-icon" title="Windows">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 5.5 10.5 4v7H3V5.5Zm0 13 7.5 1.5v-7H3v5.5ZM12 3.8 21 2v9H12V3.8Zm0 16.4V13h9v9l-9-1.8Z"/>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body has-shot">
-          <div class="card-text">
-            Edit image metadata quickly and safely. Modify EXIF tags, write keywords, and batch update metadata for multiple photos using a simple interface.
-            <div class="chips">
-              <span class="chip">Batch metadata edit</span>
-              <span class="chip">Keywords support</span>
-              <span class="chip">Photographer EXIF RAW</span>
-            </div>
-          </div>
-
-          <div class="card-shot" aria-hidden="true">
-            <img
-              src="https://raw.githubusercontent.com/AirMill/EXIF-Editor/main/assets/website-promo.png"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              onerror="this.closest('.card-body').classList.remove('has-shot'); this.parentElement.style.display='none';"
-            >
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/EXIF-Editor/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/EXIF-Editor" target="_blank" rel="noopener">Project</a>
-        </div>
-      </article>
-      
-      
-      
-      <!-- Golden Ratio Calculator (pinned) -->
-      <article class="card">
-        <div class="card-top">
-          <div>
-            <h3>Golden Ratio Calculator</h3>
-            <div class="pill">Utility</div>
-            <div class="os-line">
-              <span class="os-icon" title="Windows">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 5.5 10.5 4v7H3V5.5Zm0 13 7.5 1.5v-7H3v5.5ZM12 3.8 21 2v9H12V3.8Zm0 16.4V13h9v9l-9-1.8Z"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="macOS">
-                <svg viewBox="0 0 24 24">
-                  <path d="M15.6 2.6c-1 .1-2 .7-2.7 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.3.7-.8 1.1-1.8.9-3.1Z"/>
-                  <path d="M12 7c-2 0-3 1.2-4.2 1.2C6.5 8.2 5.5 7 4 7 1.8 7 0 9 0 12c0 2.5.9 5.2 2.1 6.9 1 1.4 1.9 2.7 3.1 2.7 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8c1.2 0 2-1.2 3-2.6.7-1 1-1.6 1.5-2.8-3.3-1.2-3.8-5.8-.6-7.4-1-1.3-2.6-2.2-4.2-2.2Z" transform="translate(4 0) scale(.85)"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="Linux">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2c-2.2 0-4 2-4 4.8 0 1.1.3 2.3.7 3.2C7.6 10.9 7 12.2 7 14c0 3.9 2.2 8 5 8s5-4.1 5-8c0-1.8-.6-3.1-1.7-4 .4-.9.7-2.1.7-3.2C16 4 14.2 2 12 2Z"/>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body has-shot">
-          <div class="card-text">
-            Quick golden ratio conversions for design and measurement checks. Uses ancient greek math to find best proportions to any number - known as the Golden Ratio.
-            <div class="chips">
-              <span class="chip">Fast input</span>
-              <span class="chip">Clean UI</span>
-              <span class="chip">Handy tool</span>
-            </div>
-          </div>
-          <div class="card-shot" aria-hidden="true">
-            <img
-              src="https://raw.githubusercontent.com/AirMill/GoldenRatio-Calculator/main/assets/website-promo.png"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              onerror="this.closest('.card-body').classList.remove('has-shot'); this.parentElement.style.display='none';"
-            >
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/GoldenRatio-Calculator/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/GoldenRatio-Calculator" target="_blank" rel="noopener">Project</a>
-        </div>
-      </article>
-
-      <!-- Custom PrintScreen (pinned) -->
-      <article class="card">
-        <div class="card-top">
-          <div>
-            <h3>Custom PrintScreen</h3>
-            <div class="pill">Productivity</div>
-            <div class="os-line">
-              <span class="os-icon" title="Windows">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 5.5 10.5 4v7H3V5.5Zm0 13 7.5 1.5v-7H3v5.5ZM12 3.8 21 2v9H12V3.8Zm0 16.4V13h9v9l-9-1.8Z"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="macOS">
-                <svg viewBox="0 0 24 24">
-                  <path d="M15.6 2.6c-1 .1-2 .7-2.7 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.3.7-.8 1.1-1.8.9-3.1Z"/>
-                  <path d="M12 7c-2 0-3 1.2-4.2 1.2C6.5 8.2 5.5 7 4 7 1.8 7 0 9 0 12c0 2.5.9 5.2 2.1 6.9 1 1.4 1.9 2.7 3.1 2.7 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8c1.2 0 2-1.2 3-2.6.7-1 1-1.6 1.5-2.8-3.3-1.2-3.8-5.8-.6-7.4-1-1.3-2.6-2.2-4.2-2.2Z" transform="translate(4 0) scale(.85)"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="Linux">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2c-2.2 0-4 2-4 4.8 0 1.1.3 2.3.7 3.2C7.6 10.9 7 12.2 7 14c0 3.9 2.2 8 5 8s5-4.1 5-8c0-1.8-.6-3.1-1.7-4 .4-.9.7-2.1.7-3.2C16 4 14.2 2 12 2Z"/>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body has-shot">
-          <div class="card-text">
-            Hovering button to capture screenshots and save them to a selected folder as JPG. Allows to choose JPEG file parameters.
-            <div class="chips">
-              <span class="chip">Quick capture</span>
-              <span class="chip">Save to Folder</span>
-              <span class="chip">Simple workflow</span>
-            </div>
-          </div>
-          <div class="card-shot" aria-hidden="true">
-            <img
-              src="https://raw.githubusercontent.com/AirMill/Custom-PrintScreen/main/assets/website-promo.png"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              onerror="this.closest('.card-body').classList.remove('has-shot'); this.parentElement.style.display='none';"
-            >
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/Custom-PrintScreen/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/Custom-PrintScreen" target="_blank" rel="noopener">Project</a>
-        </div>
-      </article>
-
-      <!-- RAW to JPG (pinned) -->
-      <article class="card">
-        <div class="card-top">
-          <div>
-            <h3>RAW → JPG</h3>
-            <div class="pill">Photography</div>
-            <div class="os-line">
-              <span class="os-icon" title="Windows">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 5.5 10.5 4v7H3V5.5Zm0 13 7.5 1.5v-7H3v5.5ZM12 3.8 21 2v9H12V3.8Zm0 16.4V13h9v9l-9-1.8Z"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="macOS">
-                <svg viewBox="0 0 24 24">
-                  <path d="M15.6 2.6c-1 .1-2 .7-2.7 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.3.7-.8 1.1-1.8.9-3.1Z"/>
-                  <path d="M12 7c-2 0-3 1.2-4.2 1.2C6.5 8.2 5.5 7 4 7 1.8 7 0 9 0 12c0 2.5.9 5.2 2.1 6.9 1 1.4 1.9 2.7 3.1 2.7 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8c1.2 0 2-1.2 3-2.6.7-1 1-1.6 1.5-2.8-3.3-1.2-3.8-5.8-.6-7.4-1-1.3-2.6-2.2-4.2-2.2Z" transform="translate(4 0) scale(.85)"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="Linux">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2c-2.2 0-4 2-4 4.8 0 1.1.3 2.3.7 3.2C7.6 10.9 7 12.2 7 14c0 3.9 2.2 8 5 8s5-4.1 5-8c0-1.8-.6-3.1-1.7-4 .4-.9.7-2.1.7-3.2C16 4 14.2 2 12 2Z"/>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body has-shot">
-          <div class="card-text">
-            Convert RAW photos to JPG in batches with a clean, straightforward interface. Great app to manage large photo shoots. Very useful for real-estate, photographers and content creators. Support most RAW file formats from NIKON, CANON, SONY etc.
-            <div class="chips">
-              <span class="chip">Batch RAW convertor</span>
-              <span class="chip">Fast workflow</span>
-              <span class="chip">Simple UI</span>
-            </div>
-          </div>
-          <div class="card-shot" aria-hidden="true">
-            <img
-              src="https://raw.githubusercontent.com/AirMill/Raw-To-Jpg/main/assets/website-promo.png"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              onerror="this.closest('.card-body').classList.remove('has-shot'); this.parentElement.style.display='none';"
-            >
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/Raw-To-Jpg/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/Raw-To-Jpg" target="_blank" rel="noopener">Project</a>
-        </div>
-      </article>
-
-      <!-- Files Renaming (pinned) -->
-      <article class="card">
-        <div class="card-top">
-          <div>
-            <h3>Files Renaming</h3>
-            <div class="pill">File management</div>
-            <div class="os-line">
-              <span class="os-icon" title="Windows">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 5.5 10.5 4v7H3V5.5Zm0 13 7.5 1.5v-7H3v5.5ZM12 3.8 21 2v9H12V3.8Zm0 16.4V13h9v9l-9-1.8Z"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="macOS">
-                <svg viewBox="0 0 24 24">
-                  <path d="M15.6 2.6c-1 .1-2 .7-2.7 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.3.7-.8 1.1-1.8.9-3.1Z"/>
-                  <path d="M12 7c-2 0-3 1.2-4.2 1.2C6.5 8.2 5.5 7 4 7 1.8 7 0 9 0 12c0 2.5.9 5.2 2.1 6.9 1 1.4 1.9 2.7 3.1 2.7 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8c1.2 0 2-1.2 3-2.6.7-1 1-1.6 1.5-2.8-3.3-1.2-3.8-5.8-.6-7.4-1-1.3-2.6-2.2-4.2-2.2Z" transform="translate(4 0) scale(.85)"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="Linux">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2c-2.2 0-4 2-4 4.8 0 1.1.3 2.3.7 3.2C7.6 10.9 7 12.2 7 14c0 3.9 2.2 8 5 8s5-4.1 5-8c0-1.8-.6-3.1-1.7-4 .4-.9.7-2.1.7-3.2C16 4 14.2 2 12 2Z"/>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body has-shot">
-          <div class="card-text">
-            Batch rename files across folders with a simple workflow. Can be used for images and other documents.
-            <div class="chips">
-              <span class="chip">Preview-first</span>
-              <span class="chip">Files renaming</span>
-              <span class="chip">Photographer-friendly</span>
-            </div>
-          </div>
-          <div class="card-shot" aria-hidden="true">
-            <img
-              src="https://raw.githubusercontent.com/AirMill/Files-Renaming/main/assets/website-promo.png"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              onerror="this.closest('.card-body').classList.remove('has-shot'); this.parentElement.style.display='none';"
-            >
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/Files-Renaming/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/Files-Renaming" target="_blank" rel="noopener">Project</a>
-        </div>
-      </article>
-
-      <!-- Virtual Enigma (pinned) -->
-      <article class="card">
-        <div class="card-top">
-          <div>
-            <h3>Virtual Enigma</h3>
-            <div class="pill">Educational</div>
-            <div class="os-line">
-              <span class="os-icon" title="Windows">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 5.5 10.5 4v7H3V5.5Zm0 13 7.5 1.5v-7H3v5.5ZM12 3.8 21 2v9H12V3.8Zm0 16.4V13h9v9l-9-1.8Z"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="macOS">
-                <svg viewBox="0 0 24 24">
-                  <path d="M15.6 2.6c-1 .1-2 .7-2.7 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.3.7-.8 1.1-1.8.9-3.1Z"/>
-                  <path d="M12 7c-2 0-3 1.2-4.2 1.2C6.5 8.2 5.5 7 4 7 1.8 7 0 9 0 12c0 2.5.9 5.2 2.1 6.9 1 1.4 1.9 2.7 3.1 2.7 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8c1.2 0 2-1.2 3-2.6.7-1 1-1.6 1.5-2.8-3.3-1.2-3.8-5.8-.6-7.4-1-1.3-2.6-2.2-4.2-2.2Z" transform="translate(4 0) scale(.85)"/>
-                </svg>
-              </span>
-              <span class="os-icon" title="Linux">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 2c-2.2 0-4 2-4 4.8 0 1.1.3 2.3.7 3.2C7.6 10.9 7 12.2 7 14c0 3.9 2.2 8 5 8s5-4.1 5-8c0-1.8-.6-3.1-1.7-4 .4-.9.7-2.1.7-3.2C16 4 14.2 2 12 2Z"/>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body has-shot">
-          <div class="card-text">
-            A fully functional Enigma coder with a GUI for learning and experimenting.
-            <div class="chips">
-              <span class="chip">Imitation Game</span>
-              <span class="chip">GUI Cipher</span>
-              <span class="chip">Enigma</span>
-            </div>
-          </div>
-          <div class="card-shot" aria-hidden="true">
-            <img
-              src="https://raw.githubusercontent.com/AirMill/Virtual-Enigma/main/assets/website-promo.png"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              onerror="this.closest('.card-body').classList.remove('has-shot'); this.parentElement.style.display='none';"
-            >
-          </div>
-        </div>
-    
-        <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/Virtual-Enigma/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/Virtual-Enigma" target="_blank" rel="noopener">Project</a>
-        </div>
-      </article>
-
-      <!-- Bbl → Mt Convertor -->
-      <article class="card">
-        <div class="card-top">
-          <div>
-            <h3>Bbl → Mt Convertor</h3>
-            <div class="pill">Oil &amp; Gas</div>
-
-            <div class="os-line">
-              <span class="os-icon" title="Windows">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 5.5 10.5 4v7H3V5.5Zm0 13 7.5 1.5v-7H3v5.5ZM12 3.8 21 2v9H12V3.8Zm0 16.4V13h9v9l-9-1.8Z"/>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body has-shot">
-          <div class="card-text">
-            Convert crude oil volumes (barrels) to metric tonnes with blend presets, API@60F input and temperature adjustment (estimate).
-            <div class="chips">
-              <span class="chip">Preset blends</span>
-              <span class="chip">API &amp; density</span>
-              <span class="chip">PDF export</span>
-            </div>
-          </div>
-
-          <div class="card-shot" aria-hidden="true">
-            <img
-              src="https://raw.githubusercontent.com/AirMill/Bbl-Mt-Convertor/main/assets/website-promo.png"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              onerror="this.closest('.card-body').classList.remove('has-shot'); this.parentElement.style.display='none';"
-            >
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/Bbl-Mt-Convertor/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/Bbl-Mt-Convertor" target="_blank" rel="noopener">Project</a>
-        </div>
-      </article>
-
-
-              <!-- Symbol Removing for File Management (pinned) -->
-      <article class="card">
-        <div class="card-top">
-          <div>
-            <h3>Symbol Removing for File Management</h3>
-            <div class="pill">File management</div>
-            <div class="os-line">
-              <span class="os-icon" title="Windows">
-                <svg viewBox="0 0 24 24">
-                  <path d="M3 5.5 10.5 4v7H3V5.5Zm0 13 7.5 1.5v-7H3v5.5ZM12 3.8 21 2v9H12V3.8Zm0 16.4V13h9v9l-9-1.8Z"/>
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body has-shot">
-          <div class="card-text">
-            Clean file names by removing or replacing unwanted symbols in batch. 
-            Ideal for photographers, office workflows and structured folder management.
-            <div class="chips">
-              <span class="chip">Batch rename</span>
-              <span class="chip">Symbol removal</span>
-              <span class="chip">Safe workflow</span>
-            </div>
-          </div>
-          <div class="card-shot" aria-hidden="true">
-            <img
-              src="https://raw.githubusercontent.com/AirMill/Symbol-Removing-For-Filemanagement/main/assets/website-promo.png"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              onerror="this.closest('.card-body').classList.remove('has-shot'); this.parentElement.style.display='none';"
-            >
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn brick" href="https://github.com/AirMill/Symbol-Removing-For-Filemanagement/releases/latest" target="_blank" rel="noopener">Download</a>
-          <a class="btn" href="https://github.com/AirMill/Symbol-Removing-For-Filemanagement" target="_blank" rel="noopener">Project</a>
-        </div>
-      </article>
+    <div class="grid" id="apps-grid">
+      <div class="grid-message">Loading apps…</div>
     </div>
 
     <footer id="contact">
       <div>
-        <b>AirMill Software Studio</b> — Handy Software Developer. Fast, Rugged and Useful apps. 
+        <b>AirMill Software Studio</b> — Handy Software Developer. Fast, Rugged and Useful apps.
       </div>
       <div>
         <a href="https://github.com/AirMill" target="_blank" rel="noopener">Contact via GitHub</a>
       </div>
     </footer>
   </div>
+
+  <script>
+    const ICONS = {
+      windows: `
+        <span class="os-icon" title="Windows">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 5.5 10.5 4v7H3V5.5Zm0 13 7.5 1.5v-7H3v5.5ZM12 3.8 21 2v9H12V3.8Zm0 16.4V13h9v9l-9-1.8Z"/>
+          </svg>
+        </span>
+      `,
+      mac: `
+        <span class="os-icon" title="macOS">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15.6 2.6c-1 .1-2 .7-2.7 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.3.7-.8 1.1-1.8.9-3.1Z"/>
+            <path d="M12 7c-2 0-3 1.2-4.2 1.2C6.5 8.2 5.5 7 4 7 1.8 7 0 9 0 12c0 2.5.9 5.2 2.1 6.9 1 1.4 1.9 2.7 3.1 2.7 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8c1.2 0 2-1.2 3-2.6.7-1 1-1.6 1.5-2.8-3.3-1.2-3.8-5.8-.6-7.4-1-1.3-2.6-2.2-4.2-2.2Z" transform="translate(4 0) scale(.85)"/>
+          </svg>
+        </span>
+      `,
+      linux: `
+        <span class="os-icon" title="Linux">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2c-2.2 0-4 2-4 4.8 0 1.1.3 2.3.7 3.2C7.6 10.9 7 12.2 7 14c0 3.9 2.2 8 5 8s5-4.1 5-8c0-1.8-.6-3.1-1.7-4 .4-.9.7-2.1.7-3.2C16 4 14.2 2 12 2Z"/>
+          </svg>
+        </span>
+      `
+    };
+
+    function escapeHtml(value = "") {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function platformIcons(platforms = []) {
+      return platforms
+        .map(p => ICONS[p] || "")
+        .join("");
+    }
+
+    function chipsHtml(chips = []) {
+      return chips
+        .slice(0, 5)
+        .map(chip => `<span class="chip">${escapeHtml(chip)}</span>`)
+        .join("");
+    }
+
+    function renderAppCard(app) {
+      const hasImage = typeof app.image === "string" && app.image.trim() !== "";
+
+      return `
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <h3>${escapeHtml(app.title || "Untitled App")}</h3>
+              <div class="pill">${escapeHtml(app.category || "Utility")}</div>
+              <div class="os-line">${platformIcons(app.platforms || [])}</div>
+            </div>
+          </div>
+
+          <div class="card-body ${hasImage ? "has-shot" : ""}">
+            <div class="card-text">
+              ${escapeHtml(app.description || "")}
+              <div class="chips">${chipsHtml(app.chips || [])}</div>
+            </div>
+
+            ${
+              hasImage
+                ? `
+                <div class="card-shot" aria-hidden="true">
+                  <img
+                    src="${escapeHtml(app.image)}"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    onerror="this.closest('.card-body').classList.remove('has-shot'); this.parentElement.style.display='none';"
+                  >
+                </div>
+              `
+                : ""
+            }
+          </div>
+
+          <div class="actions">
+            <a class="btn brick" href="${escapeHtml(app.download || "#")}" target="_blank" rel="noopener">Download</a>
+            <a class="btn" href="${escapeHtml(app.project || "#")}" target="_blank" rel="noopener">Project</a>
+          </div>
+        </article>
+      `;
+    }
+
+    async function loadApps() {
+      const grid = document.getElementById("apps-grid");
+
+      try {
+        const response = await fetch("./data/apps.json");
+        if (!response.ok) {
+          throw new Error("Could not load apps.json");
+        }
+
+        let apps = await response.json();
+
+        if (!Array.isArray(apps)) {
+          throw new Error("apps.json must contain an array");
+        }
+
+        apps.sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+
+        grid.innerHTML = apps.map(renderAppCard).join("");
+      } catch (error) {
+        console.error(error);
+        grid.innerHTML = `
+          <div class="grid-message">
+            Could not load the app list. Please check <b>data/apps.json</b>.
+          </div>
+        `;
+      }
+    }
+
+    loadApps();
+  </script>
 </body>
 </html>
