@@ -16,6 +16,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AirMill Apps</title>
 
+<script>
+document.addEventListener("click", function(e) {
+  const link = e.target.closest("a");
+  if (!link) return;
+
+  const href = link.getAttribute("href");
+  if (!href) return;
+
+  // detect download files
+  if (href.match(/\.(zip|exe|msi|dmg)$/i)) {
+    gtag('event', 'download', {
+      event_category: 'file',
+      event_label: href
+    });
+  }
+});
+</script>
 
   <meta name="robots" content="noemailcollection">
   <meta charset="utf-8" />
