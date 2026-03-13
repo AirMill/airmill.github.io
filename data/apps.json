@@ -32,6 +32,19 @@
     "project": "https://github.com/AirMill/Files-Renaming",
     "order": 3
   },
+
+  {
+  "title": "Matrix Screensaver",
+  "category": "Visual / Screensaver",
+  "description": "Matrix-style digital rain screensaver with glowing head symbols, fading trails and smooth 60 FPS rendering.",
+  "chips": ["Matrix rain", "Digital screensaver", "60 FPS renderer"],
+  "platforms": ["windows"],
+  "image": "https://raw.githubusercontent.com/AirMill/Matrix-Screensaver/main/assets/website-promo.png",
+  "download": "https://github.com/AirMill/Matrix-Screensaver/releases/latest",
+  "project": "https://github.com/AirMill/Matrix-Screensaver",
+  "order": 4
+  },
+
   {
     "title": "Symbol Removing for File Management",
     "category": "File management",
@@ -41,7 +54,7 @@
     "image": "https://raw.githubusercontent.com/AirMill/Symbol-Removing-For-Filemanagement/main/assets/website-promo.png",
     "download": "https://github.com/AirMill/Symbol-Removing-For-Filemanagement/releases/latest",
     "project": "https://github.com/AirMill/Symbol-Removing-For-Filemanagement",
-    "order": 4
+    "order": 9
   },
   {
     "title": "Virtual Enigma",
