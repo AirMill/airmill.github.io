@@ -44,18 +44,6 @@
   "project": "https://github.com/AirMill/Matrix-Screensaver",
   "order": 4
   },
-
-  {
-    "title": "Symbol Removing for File Management",
-    "category": "File management",
-    "description": "Clean file names by removing or replacing unwanted symbols in batch. Ideal for photographers, office workflows and structured folders.",
-    "chips": ["Batch rename", "Symbol removal", "Safe workflow"],
-    "platforms": ["windows"],
-    "image": "https://raw.githubusercontent.com/AirMill/Symbol-Removing-For-Filemanagement/main/assets/website-promo.png",
-    "download": "https://github.com/AirMill/Symbol-Removing-For-Filemanagement/releases/latest",
-    "project": "https://github.com/AirMill/Symbol-Removing-For-Filemanagement",
-    "order": 9
-  },
   {
     "title": "Virtual Enigma",
     "category": "Educational",
@@ -99,5 +87,16 @@
     "download": "https://github.com/AirMill/Custom-PrintScreen/releases/latest",
     "project": "https://github.com/AirMill/Custom-PrintScreen",
     "order": 8
+  },
+  {
+    "title": "Symbol Removing for File Management",
+    "category": "File management",
+    "description": "Clean file names by removing or replacing unwanted symbols in batch. Ideal for photographers, office workflows and structured folders.",
+    "chips": ["Batch rename", "Symbol removal", "Safe workflow"],
+    "platforms": ["windows"],
+    "image": "https://raw.githubusercontent.com/AirMill/Symbol-Removing-For-Filemanagement/main/assets/website-promo.png",
+    "download": "https://github.com/AirMill/Symbol-Removing-For-Filemanagement/releases/latest",
+    "project": "https://github.com/AirMill/Symbol-Removing-For-Filemanagement",
+    "order": 9
   }
 ]
